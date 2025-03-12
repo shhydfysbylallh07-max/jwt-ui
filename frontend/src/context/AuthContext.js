@@ -1,8 +1,15 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
+// Access environment variables
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+
+// Log for debugging
+console.log('Supabase URL:', supabaseUrl);
+console.log('Supabase Key:', supabaseKey ? 'Key exists' : 'Key missing');
+
+// Create Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const AuthContext = createContext();
