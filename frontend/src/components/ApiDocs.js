@@ -169,7 +169,7 @@ export default function ApiDocs() {
     // Add headers
     curlCommand += `  -H 'accept: application/json, text/plain, */*' \\\n`;
     curlCommand += `  -H 'accept-language: en-GB' \\\n`;
-    curlCommand += `  -H 'authorization: Bearer $JWT_TOKEN' \\\n`;
+    curlCommand += `  -H "authorization: Bearer \${JWT_TOKEN}" \\\n`;
     
     if (selectedEndpoint.method === 'POST') {
       curlCommand += `  -H 'content-type: application/json' \\\n`;
@@ -219,12 +219,12 @@ export default function ApiDocs() {
         </p>
         
         <div className="bg-gray-100 p-4 rounded-md mb-4 relative">
-          <pre className="font-mono text-sm overflow-x-auto">{exportCommand}</pre>
+          <pre className="font-mono text-sm overflow-x-auto">export JWT_TOKEN="********" <span className="text-gray-500"># Token is hidden for security</span></pre>
           <button 
             onClick={() => copyToClipboard(exportCommand)}
             className="absolute top-2 right-2 bg-indigo-600 text-white px-2 py-1 rounded text-xs hover:bg-indigo-700"
           >
-            Copy
+            Copy Actual Token
           </button>
         </div>
         
