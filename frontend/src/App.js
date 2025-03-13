@@ -4,6 +4,8 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
+import ApiDocs from './components/ApiDocs';
+import Navigation from './components/Navigation';
 import "./App.css";
 
 // Protected route component
@@ -37,6 +39,11 @@ function AppRoutes() {
           <Dashboard />
         </ProtectedRoute>
       } />
+      <Route path="/api-docs" element={
+        <ProtectedRoute>
+          <ApiDocs />
+        </ProtectedRoute>
+      } />
       <Route path="*" element={<Navigate to={user ? "/dashboard" : "/signin"} />} />
     </Routes>
   );
@@ -48,7 +55,10 @@ function App() {
       <AuthProvider>
         <Toaster position="top-right" />
         <div className="min-h-screen bg-gray-50">
-          <AppRoutes />
+          <Navigation />
+          <div className="py-4">
+            <AppRoutes />
+          </div>
         </div>
       </AuthProvider>
     </Router>

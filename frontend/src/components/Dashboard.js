@@ -46,13 +46,19 @@ export default function Dashboard() {
             
             <div>
               <h3 className="text-lg font-medium text-gray-900">JWT Token</h3>
-              <div className="mt-2">
+              <div className="mt-2 flex space-x-2">
                 <button
                   onClick={handleCopyJwt}
                   className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Copy JWT to Clipboard
                 </button>
+                <a
+                  href="/api-docs"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                >
+                  View API Documentation
+                </a>
               </div>
             </div>
             
